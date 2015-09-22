@@ -12,6 +12,8 @@
 		693E6FAC1BB1C96100E2EFCB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693E6FAA1BB1C96100E2EFCB /* MainMenu.xib */; };
 		693E6FB71BB1C96100E2EFCB /* ChatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E6FB61BB1C96100E2EFCB /* ChatterTests.swift */; };
 		693E6FC21BB1C96100E2EFCB /* ChatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E6FC11BB1C96100E2EFCB /* ChatterUITests.swift */; };
+		693E6FD11BB1CACA00E2EFCB /* ChatWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E6FCF1BB1CACA00E2EFCB /* ChatWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		693E6FD21BB1CACA00E2EFCB /* ChatWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693E6FD01BB1CACA00E2EFCB /* ChatWindowController.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		693E6FBD1BB1C96100E2EFCB /* ChatterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		693E6FC11BB1C96100E2EFCB /* ChatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITests.swift; sourceTree = "<group>"; };
 		693E6FC31BB1C96100E2EFCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		693E6FCF1BB1CACA00E2EFCB /* ChatWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatWindowController.swift; sourceTree = "<group>"; };
+		693E6FD01BB1CACA00E2EFCB /* ChatWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				693E6FA81BB1C96100E2EFCB /* Assets.xcassets */,
 				693E6FAA1BB1C96100E2EFCB /* MainMenu.xib */,
 				693E6FAD1BB1C96100E2EFCB /* Info.plist */,
+				693E6FCF1BB1CACA00E2EFCB /* ChatWindowController.swift */,
+				693E6FD01BB1CACA00E2EFCB /* ChatWindowController.xib */,
 			);
 			path = Chatter;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			files = (
 				693E6FA91BB1C96100E2EFCB /* Assets.xcassets in Resources */,
 				693E6FAC1BB1C96100E2EFCB /* MainMenu.xib in Resources */,
+				693E6FD21BB1CACA00E2EFCB /* ChatWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693E6FA71BB1C96100E2EFCB /* AppDelegate.swift in Sources */,
+				693E6FD11BB1CACA00E2EFCB /* ChatWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
