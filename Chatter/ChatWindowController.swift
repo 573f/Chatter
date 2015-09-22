@@ -8,6 +8,9 @@
 
 import Cocoa
 
+private let ChatWindowControllerDidSendMessageNotification = "com.573f.chatter.ChatWindowControllerDidSendMessageNotification"
+private let ChatWindowControllerMessageKey = "com.573f.chatter.ChatWindowControllerMessageKey"
+
 class ChatWindowController: NSWindowController {
     
     dynamic var log: NSAttributedString = NSAttributedString(string: "")
@@ -23,12 +26,50 @@ class ChatWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(
+            self,
+            selector: Selector("receiveDidSendMessageNotification:"),
+            name: ChatWindowControllerDidSendMessageNotification,
+            object: nil)
     }
     
-    //MARK: - Actions
+    deinit {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self)
+    }
     
-    @IBAction func send(sender: AnyObject) {
-        print("Got \(message).")
+    // MARK: - Actions
+    
+    @IBAction func send(sender: NSButton) {
+        sender.window?.endEditingFor(nil)
+        if let message = message {
+            let userInfo = [ChatWindowControllerMessageKey: message]
+            let notificationCenter = NSNotificationCenter.defaultCenter()
+            notificationCenter.postNotificationName(
+                ChatWindowControllerDidSendMessageNotification,
+                object: self,
+                userInfo: userInfo)
+        }
+        message = ""
+    }
+    
+    // MARK: - Notifications
+    
+    func receiveDidSendMessageNotification(note: NSNotification) {
+        let mutableLog = log.mutableCopy() as! NSMutableAttributedString
+        
+        if log.length > 0 {
+            mutableLog.appendAttributedString(NSAttributedString(string: "\n"))
+        }
+        
+        let userInfo = note.userInfo! as! [String : String]
+        let message = userInfo[ChatWindowControllerMessageKey]!
+        
+        let logLine = NSAttributedString(string: message)
+        mutableLog.appendAttributedString(logLine)
+        
+        log = mutableLog.copy() as! NSAttributedString
+        textView.scrollRangeToVisible(NSRange(location: log.length, length: 0))
     }
 }
